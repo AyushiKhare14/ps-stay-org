@@ -18,7 +18,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-        <script src="../script/user-todo.js"></script>
+    <script src="../script/new-todo.js"></script>
 
 
 
@@ -84,7 +84,7 @@
                         <ul>
                             <li>Pending</li>
                             <li>Completed</li>
-                        </ul>
+                        </ul>       
                         <li>Categories</li>
 
                         <ul class="nav-sublist">
@@ -113,24 +113,55 @@
                 <div class="row">
                     <div class="left-side-content col-md-6 ">
 
-                        <div class="d-flex align-items-center justify-content-center mt-3">
+                        <h5>Assign a new task!</h5>
+                        <br>
+
+                        <div class="d-flex align-items-center justify-content-center">
                             <select name="users" id="usersList" class="forminput">
                                 <option value="" class="options">Select user...</option>
                             </select>
                         </div>
                         <br>
 
-                        <table id="userToDoList" class="table table-striped">
-                            <tr>
-                                <!-- <th>Category</th> -->
-                                <th>Description</th>
-                                <!-- <th>Deadline</th> -->
-                                <!-- <th>Priority</th> -->
-                                <th>Completion Status</th>
-                                <th>Take Action</th>
-                            </tr>
-                        </table>
 
+                        <div class="d-flex align-items-center justify-content-center">
+                            <select name="taskCategory" id="taskCategory" class="forminput col-md-7">
+                                <option value="">Select category...</option>
+                            </select>
+                        </div><br>
+
+
+                        <div class="d-flex align-items-center justify-content-center">
+                        <textarea name="description" id="description" class="formtextarea col-md-7"
+                            placeholder="Task details..." cols="20" rows="5"></textarea>
+                        </div><br>
+
+
+                        <div class="d-flex align-items-center justify-content-center">
+                        <input type="date" id="deadline" class="forminput col-md-7" placeholder="Deadline YYYY-MM-DD">
+                        </div><br>
+
+
+                        <div class="d-flex align-items-center justify-content-center">
+                            <select name="priority" id="priority" class="forminput col-md-7">
+                                <option value="">Choose priority...</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div><br>
+
+                        <div class="d-flex justify-content-center">
+                            <button id="submitTaskBtn" class=" btn btn-dark loginBtn" onclick="submitTask()">Assign
+                                Task</button>
+                        </div>
+                        <!-- <input type="button" value="Add Task"  onclick="submitTask()"> -->
+
+                        <p id="confirmationMessage"></p>
+
+
+
+                
                     </div>
 
 
@@ -213,50 +244,4 @@
     </div>
 </body>
 
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show ToDO</title>
-    
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
-</head>
-<body>
-
-    
-
-    
-</body>
 </html>

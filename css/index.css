@@ -1,0 +1,243 @@
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+#brandtitle, #getstarted {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#site-navbar {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 1rem;
+
+}
+
+.nav-link:hover {
+    font-size:large;
+}
+
+#header-img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#image-box{
+    display: flex;
+    justify-content: center;
+}
+
+#image-box > * {
+    /* border: 1px solid black; */
+    height: 40vh;
+    transition: transform .2s;
+}
+
+#image-box > *:hover{
+
+    transform: scale(1.2);
+}
+
+.box-img {
+    border-radius: 10px;
+}
+
+#image-box h3{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#foot-note{
+    background-color: black;
+}
+
+#foot-note li:first-of-type{
+    list-style: none;
+    font-size: small;
+    color: rgb(253, 252, 252);
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+}
+
+
+#foot-note li{
+    list-style: none;
+    font-size: x-small;
+    color: rgb(245, 237, 226);
+    text-align: center;
+    
+    
+    
+}
+
+
+#footer {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#contact-us a {
+
+    height: 55px;
+    width: 55px;
+    background-image: url('../images/contact-us-sprite.webp');
+    display: inline-block;
+    margin: 5px;
+}
+
+
+
+#fb {
+    background-position: -47px -218px;
+}
+
+#yt {
+    background-position: -350px -218px;
+}
+
+#tw {
+    background-position: -410px -218px;
+
+}
+
+#lin {
+    background-position: -167px -218px;
+}
+
+#pin {
+    background-position: -230px -218px;
+}
+
+
+/* Login Page */
+
+#loginDiv {
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.loginBtn{
+    width: 15rem;
+    margin: 1rem;
+    
+}
+
+/* user home page  header*/
+
+#userhomepageheader {
+    background-color: black;
+    height : 10vh;
+    
+    
+
+}
+
+#brandtitle-user-homepage h6{
+    font-family: "Great Vibes", cursive;
+    font-size: 2.2rem;
+    color: rgb(248, 251, 251);
+    padding: 0.5rem;
+
+}
+
+.logout-img {
+    width: 45px;
+    height: 45px;
+}
+
+
+/* Main content userhomepage */
+
+.main-container{
+    height: 75vh;
+}
+
+/* side nav */
+
+#sidenav{
+    
+    background-color: black;
+    box-shadow: 10px 10px 7px rgb(204, 208, 209);
+}
+
+.usermenu {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.usermenu li{
+    
+    list-style: none;
+    display: block;
+    padding: 0.3rem;
+    
+}
+
+.usermenu li:hover{
+    transform: scale(1.2);
+}
+
+.usermenu li a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.usermenu li a:active {
+    text-decoration: none;
+    color: rgb(179, 184, 87);
+}
+
+.nav-sublist{
+    font-weight: lighter;
+}
+
+
+/* Left page content */
+
+.forminput{
+    border-radius: 10px;
+    border-color: rgb(86, 87, 88);
+    width: 350px;
+    height: 40px;
+    box-shadow: 5px 5px 3px rgb(229, 230, 230);
+
+}
+
+.formtextarea{
+    border-radius: 10px;
+    border-color: rgb(86, 87, 88);
+    width: 250px;
+    height: 120px;
+    box-shadow: 5px 5px 3px rgb(229, 230, 230);
+
+}
+
+.options{
+    color: rgb(161, 158, 158);
+    font-style: italic;
+}
+
+*::placeholder{
+    color: rgb(161, 158, 158);
+    font-style: italic;
+}
+
+/* footer */
+
+.footer-userhomepage {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* height: 2vh; */
+    /* padding-bottom: 15px; */
+}
+
