@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +22,12 @@
     <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
+            return new bootstrap.Tooltip(tooltipTriggerEl)
         })
     </script>
 
 </head>
+
 <body>
 
     <header>
@@ -34,11 +36,11 @@
                 ~ Stay Organised ~
             </h1>
         </div>
-        
+
         <div id="site-navbar">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
                 <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -48,7 +50,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                             <a class="nav-link" href="about-us.html">Just for me</a>
                             <a class="nav-link" href="classrooms.html">For my team</a>
-                            <a class="nav-link" href="contact-us.html">Contact Us</a>   
+                            <a class="nav-link" href="contact-us.html">Contact Us</a>
                             <a class="nav-link" href="./src/user-login.html">Login</a>
 
                         </div>
@@ -59,49 +61,49 @@
     </header>
 
     <main>
-        <div>
-            <img src="./images/header.png" class="img-fluid" id="header-img" alt="Header Image to show you can manage everything with us.">
+        <div class="d-flex justify-content-center">
+            <img src="./images/head.jpeg" class="img-fluid p-2" id="header-img"
+                alt="Header Image to show you can manage everything with us.">
         </div>
 
         <div id="getstarted">
-            <button class="btn btn-dark btn-lg">Get Started - It's free!</button>
+            <button class="btn btn-dark btn-lg" onclick="(window.location.href='../src/user-login.html')">Get Started -
+                It's free!</button>
         </div>
 
-        
+
         <section>
             <div id="image-box" class="row m-3">
                 <div class="col-md-3 m-3">
-                    <img src="./images/dummy-img.png" class="img-fluid box-img" alt="">
-                    <h3>Plan your day with us!</h3>
+                    <img src="./images/dummy-img.png" class="img-fluid box-img m-3" alt="">
+                    <h5>Plan your day with us!</h5>
                 </div>
                 <div class="col-md-3 m-3">
-                    <img src="./images/dummy-img.png" class="img-fluid box-img" alt="">
-                    <h3>Manage timelines!</h3>
+                    <img src="./images/dummy-img.png" class="img-fluid box-img m-3" alt="">
+                    <h5>Manage timelines!</h5>
                 </div>
                 <div class="col-md-3 m-3">
-                    <img src="./images/dummy-img.png" class="img-fluid box-img" alt="">
-                    <h3>Increase productivity!</h3>
+                    <img src="./images/dummy-img.png" class="img-fluid box-img m-3" alt="">
+                    <h5>Increase productivity!</h5>
                 </div>
             </div>
 
         </section>
 
         <div class="d-flex justify-content-center">
-            <img src="./images/discount.jpeg" alt="" data-bs-toggle="tooltip" data-bs-placement="right" title="Our Special Corporate Discount!">
+            <img src="./images/discount.jpeg" alt="" data-bs-toggle="tooltip" data-bs-placement="right"
+                title="Our Special Corporate Discount!">
         </div>
 
     </main>
 
-    
-
-    <a href="./src/user-todos.html">Show ToDo Lists</a>
-    <a href="./src/new-user.html">Add New User</a>
-    <a href="./src/new-todo.html">Assign Task</a>
 
 
 
+
+<footer class="container">
     <div id="foot-note" class="row d-flex justify-content-center p-3 text-light fw-lighter ">
-        <div class="col-sm-4 col-md-2">
+        <div class="col-6 col-sm-4 col-md-2">
 
             <ul>
                 <li>Our merchandise</li>
@@ -111,7 +113,7 @@
             </ul>
 
         </div>
-        <div class="col-sm-4 col-md-2">
+        <div class="col-6 col-sm-4 col-md-2">
 
             <ul>
                 <li>Partnerships</li>
@@ -123,7 +125,7 @@
 
 
         </div>
-        <div class="col-sm-4 col-md-2">
+        <div class="col-6 col-sm-4 col-md-2">
 
             <ul>
                 <li>Support</li>
@@ -132,7 +134,7 @@
             </ul>
 
         </div>
-        <div class="col-sm-4 col-md-2">
+        <div class="col-6 col-sm-4 col-md-2">
 
             <ul>
                 <li>For mobile</li>
@@ -142,7 +144,7 @@
 
 
         </div>
-        <div class="col-sm-4 col-md-2">
+        <div class="col-6 col-sm-4 col-md-2">
 
             <ul>
                 <li>Stay Organised</li>
@@ -163,16 +165,18 @@
         <small>FOLLOW US</small>
     </div>
     <div class="d-flex justify-content-center" id="contact-us">
-        <a href="www.facebook.com" id="fb"></a>
+        <a href="https://www.facebook.com/" id="fb"></a>
         <a href="www.youtube.com" id="yt"></a>
         <a href="www.linkedin.com" id="lin"></a>
         <a href="www.pinterest.com" id="pin"></a>
 
     </div>
 
-    <div id="footer">
+    <div class="copyright">
         <small class="text-dark">Site designed and created by: Ayushi Khare&copy;PluralSight</small>
     </div>
-    
+</footer>
+
 </body>
+
 </html>

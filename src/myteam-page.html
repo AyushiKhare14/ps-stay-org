@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Organised</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../css/index.css">
+
+    <script src="../script/user-todo.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <header style="width: 80%;">
+        <div id="brandtitle">
+            <h1 class="fs-1 great-vibes-regular">
+                ~ Stay Organised ~
+            </h1>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <div class="" id="welcomeuser"></div>
+            <div class="" onclick="logout()">Logout</div>
+
+        </div>
+    </header>
+
+    <main class="m-2">
+
+        <div class="selectionPanel d-flex justify-content-center flex-column">
+
+            <div class="btn-group btn-group-lg mt-4" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradiomain" id="btnradioA" value="self" autocomplete="off" onclick="window.location.replace('./user-home.html')">
+                <label class="btn btn-outline-dark" for="btnradioA">My Planner</label>
+            
+                <input type="radio" class="btn-check" name="btnradiomain" id="btnradioB" value="team" autocomplete="off" checked onclick="window.location.replace('./myteam-page.html')">
+                <label class="btn btn-outline-dark" for="btnradioB">My Team's</label>
+            </div>
+
+            <div class="btn-group mt-2" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-info" for="btnradio1">View Tasks</label>
+            
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-info" for="btnradio2">Today's</label>
+            
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-info" for="btnradio3">High Priority</label>
+            </div>
+        </div>
+
+
+        <!-- Task table -->
+        <hr>
+        <div class="left-side-content col-md-6 mt-4">
+
+            <div class="d-flex align-items-center justify-content-center mt-3">
+                <select name="users" id="usersList" class="forminput">
+                    <option value="" class="options">Select user...</option>
+                </select>
+            </div>
+            <br>
+
+            <table id="userToDoList" class="table table-striped">
+                <tr>
+                    <th>Task</th>
+                    <th>Completion Status</th>
+                    <th>Take Action</th>
+                </tr>
+            </table>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Task Details!</h5>
+                  <hr>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" id="offcanvascloseBtn" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    <div class=" " >
+                        <div id="toDoContainerDiv" class="" ></div>
+                    </div>
+                  </div>
+                  <!-- <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                      Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div> -->
+                </div>
+              </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- --------------- -->
+
+        
+    </main>

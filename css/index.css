@@ -1,8 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+#container {
+    flex: 1 1 auto;  /*grow vertically*/
+}
+
+.container{
+    --bs-gutter-x: 0rem;
+    max-width: 100%;
+}
+
+
 .great-vibes-regular {
     font-family: "Great Vibes", cursive;
     font-weight: 900;
     font-style: normal;
-    font-size: 3rem;
+    /* font-size: 3rem; */
 }
 
 #brandtitle, #getstarted {
@@ -48,8 +64,8 @@
     border-radius: 10px;
 }
 
-#image-box h3{
-    margin-top: 1rem;
+#image-box h5{
+    /* margin-top: 1rem; */
     text-align: center;
 }
 
@@ -116,13 +132,19 @@
     background-position: -230px -218px;
 }
 
+.copyright{
+    text-align: center;
+    font-size: small;
+    
+}
 
 /* Login Page */
 
-#loginDiv {
+/* #loginDiv {
     margin-left: 35%;
     margin-right: 35%;
-}
+    height: 55vh;
+} */
 
 .loginBtn{
     width: 15rem;
@@ -142,16 +164,17 @@
 
 #brandtitle-user-homepage h6{
     font-family: "Great Vibes", cursive;
-    font-size: 2.2rem;
+    font-size: 3rem;
     color: rgb(248, 251, 251);
-    padding: 0.5rem;
+   
 
 }
 
-.logout-img {
+/* .logout-img {
     width: 45px;
     height: 45px;
-}
+} */
+
 
 
 /* Main content userhomepage */
@@ -231,6 +254,36 @@
     font-style: italic;
 }
 
+
+/* right side content */
+
+.descbox{
+    margin: 1rem;
+    box-shadow: 5px 5px 3px rgb(229, 230, 230);
+
+}
+
+.descheaders {
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(61, 61, 71);
+}
+
+.desctext {
+    text-align: right;
+
+}
+
+.markCompleteBtn {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.quickTaskBtn {
+    box-shadow: 5px 5px 2px rgb(171, 172, 172);
+    background-color: rgb(46, 45, 45);
+}
+
 /* footer */
 
 .footer-userhomepage {
@@ -241,3 +294,49 @@
     /* padding-bottom: 15px; */
 }
 
+
+/* Login Page */
+
+.loginoptions{
+    font-size: small;
+}
+
+/* User Registration */
+
+.showErrorMsg{
+    
+    color: rgb(163, 56, 56);
+    font-size: small;
+}
+
+sup {
+    color: brown;
+}
+
+
+
+
+
+/* Media queries */
+
+@media screen and (max-width: 400px) {
+    #foot-note {
+      display: none;
+    }
+  }
+
+
+  @media (min-width: 300px) {
+    div.navdiv {
+        display: none;
+        
+    }
+    
+}
+
+
+/* new task */
+
+textarea{
+    width: 100%;
+}

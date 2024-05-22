@@ -1,6 +1,67 @@
 
 "use strict";
 
+// let usernameList = [];
+// window.onload = function (){
+//     console.log(usernameList);
+//     fetch('http://localhost:8083/api/users')
+//     .then(response => response.json())
+//     .then(data => {
+//         for(let i=0; i<data.length; i++){
+//             usernameList.push(data[i].username);
+//         }})
+//         console.log(usernameList);
+// }
+
+
+
+
+function isUsernameAvailable(){
+    let usernameToCheck = document.getElementById("username").value;
+    fetch('http://localhost:8083/api/username_available/' + usernameToCheck)
+   .then(response => response.json())
+   .then(data => {
+    console.log(data)
+    let showmsg = document.getElementById("showmsg");
+    if(!data.available){
+//        let showmsg = document.getElementById("showmsg");
+        showmsg.innerHTML = `Username is not available`;
+    }
+    else
+    {
+        showmsg.innerHTML = ``;
+    }
+   })
+    // if (usernameList.includes(usernameToCheck)){
+    //     let showmsg = document.getElementById("showmsg");
+    //      showmsg.innerHTML = `Username is not available`;
+    // }
+}
+
+function doPasswordsMatch(){
+    let password = document.getElementById("password").value;
+    let repassword = document.getElementById("repassword").value;
+    let showmsg2 = document.getElementById("showmsg2");
+    if(password != repassword){
+        
+        showmsg2.innerHTML = `Entered Passwords do not match.`;
+    }
+    else{
+        showmsg2.innerHTML = ``;
+    }
+
+}
+
+
+// function clearMsgSpan(){
+
+//     let showmsg = document.getElementById("showmsg");
+//     let showmsg2 = document.getElementById("showmsg2");
+//         showmsg.innerHTML = ``;
+//         showmsg2.innerHTML = ``;
+    
+// }
+
 function registerUser(){
 
         //Fetching form values
@@ -9,10 +70,12 @@ function registerUser(){
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         let repassword = document.getElementById("repassword").value;
-        
+
 
         let messageDiv = document.getElementById("messageDiv");
         let unameavail = true;
+
+        
         
         //Checking username availability
         const xhr = new XMLHttpRequest();
@@ -58,13 +121,22 @@ function registerUser(){
       .then(response => response.json()) 
       .then(json => {
         console.log(json);
-        if(!alert('New User added')){window.location.reload();}
-           
+        if (!json.error){
+            if(!alert('New User added')){window.location.replace("./user-login.html ");}
+        }
+        else{
+            throw new CheckCondition("Partial filled form cannnot be submitted!");;
+        }
       })
       .catch(err => {
-        if(!alert("Unexpected error"+err)){window.location.reload();}
+        if(!alert(err)){window.location.reload();}
         
       });
     
 }
 
+class CheckCondition extends Error { 
+    constructor(msg) { 
+        super(msg); 
+    } 
+} 
