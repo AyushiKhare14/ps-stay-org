@@ -30,14 +30,20 @@
 
 <body>
 
-    <header>
+    <header style="width: 75%;">
         <div id="brandtitle">
             <h1 class="great-vibes-regular">
                 ~ Stay Organised ~
             </h1>
         </div>
+        <hr>
 
-        <div id="site-navbar">
+        <div class="d-flex justify-content-around" >
+            <div ><img src="./images/register.png" alt="Register as new user" onclick="window.location.replace('../src/register-user.html')"></div>
+            <div ><img src="./images/login.png" alt="User login" onclick="window.location.replace('../src/user-login.html')"></div>
+        </div>
+
+        <!-- <div id="site-navbar">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -57,17 +63,17 @@
                     </div>
                 </div>
             </nav>
-        </div>
+        </div> -->
     </header>
 
     <main>
-        <div class="d-flex justify-content-center">
-            <img src="./images/head.jpeg" class="img-fluid p-2" id="header-img"
+        <div class="d-flex justify-content-center mt-4">
+            <img src="./images/head.jpeg" class="img-fluid" id="header-img"
                 alt="Header Image to show you can manage everything with us.">
         </div>
 
         <div id="getstarted">
-            <button class="btn btn-dark btn-lg" onclick="(window.location.href='../src/user-login.html')">Get Started -
+            <button class="btn btn-info btn-lg" onclick="(window.location.href='../src/user-login.html')">Get Started -
                 It's free!</button>
         </div>
 
@@ -90,6 +96,11 @@
 
         </section>
 
+        <div id="getstarted">
+            <button class="btn btn-warning btn-lg" onclick="(window.location.href='../src/user-login.html')">Get Started -
+                It's free!</button>
+        </div>
+
         <div class="d-flex justify-content-center">
             <img src="./images/discount.jpeg" alt="" data-bs-toggle="tooltip" data-bs-placement="right"
                 title="Our Special Corporate Discount!">
@@ -101,7 +112,7 @@
 
 
 
-<footer class="container">
+<div class="container mb-3">
     <div id="foot-note" class="row d-flex justify-content-center p-3 text-light fw-lighter ">
         <div class="col-6 col-sm-4 col-md-2">
 
@@ -171,6 +182,8 @@
         <a href="www.pinterest.com" id="pin"></a>
 
     </div>
+</div>
+<footer>
 
     <div class="copyright">
         <small class="text-dark">Site designed and created by: Ayushi Khare&copy;PluralSight</small>

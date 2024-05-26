@@ -19,13 +19,12 @@ function validateUser(){
                     validationStatus = true;
                     sessionStorage.setItem("id", data[i].id);
                     sessionStorage.setItem("name", data[i].name);
-                    window.location.replace("../src/user-home.html");
-                    //window.location.replace("../src/user-homepage.html?user="+data[i].name);
-                    //break;
+                    window.location.replace("../src/my-tasks.html");
+                    
                 }
                 else{
                     //if(!alert('Username or password does not match. Please retry or register as new user!')){window.location.reload();}
-                    console.log(validationStatus);
+                    //console.log(validationStatus);
                     //break;
                 }
                 

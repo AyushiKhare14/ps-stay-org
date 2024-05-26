@@ -2,6 +2,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: #dfecf7; */
+
+    /* background-image: url('../images/wallnew1.jpeg');
+    background-attachment: fixed; */
+    background-size: cover;
+    /* opacity: 0.3; */
   }
 
 #container {
@@ -62,6 +68,7 @@ body {
 
 .box-img {
     border-radius: 10px;
+    object-fit: contain;
 }
 
 #image-box h5{
@@ -270,8 +277,12 @@ body {
 }
 
 .desctext {
+    
     text-align: right;
-
+    color: rgb(66, 65, 65);
+    font-style: italic;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:  small;
 }
 
 .markCompleteBtn {
@@ -314,6 +325,14 @@ sup {
 }
 
 
+/* footer */
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;}
+
 
 
 
@@ -340,3 +359,36 @@ sup {
 textarea{
     width: 100%;
 }
+
+
+.table-darker{
+    background-color: rgba(0, 0, 0, .75);
+}
+
+#offcanvasExample{
+    background-color: #ffffff;
+    border-color: rgb(104, 238, 238);
+}
+
+.pridiv {
+    text-align: center;
+    color: black;
+    border-color: black;
+    border-radius: 20px;
+    height: 20px;
+    width: 30px;
+}
+
+
+/* #quicktask{
+    border: 2px solid rgb(236, 234, 234);
+    border-radius: 10px;
+    
+} */
+
+/* .indeximgdiv{
+    display: block;
+    justify-content: center;
+    width:90%;
+    height: 
+} */

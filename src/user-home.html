@@ -20,7 +20,10 @@
 
     <link rel="stylesheet" href="../css/index.css">
 
-    <script src="../script/new-todo.js"></script>
+    <script src="../script/new-todo.js">
+
+        
+    </script>
 
 
 
@@ -42,33 +45,33 @@
         </div>
     </header>
 
-    <main>
+    <main class="m-1">
 
         <div class="selectionPanel d-flex justify-content-center flex-column">
 
-            <div class="btn-group btn-group-lg mt-4" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group mt-4" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradiomain" id="btnradioA" value="self" autocomplete="off" checked onclick="window.location.replace('./user-home.html')">
                 <label class="btn btn-outline-dark" for="btnradioA">My Planner</label>
             
-                <input type="radio" class="btn-check" name="btnradiomain" id="btnradioB" value="team" autocomplete="off" onclick="window.location.replace('./myteam-page.html')">
+                <input type="radio" class="btn-check" name="btnradiomain" id="btnradioB" value="team" autocomplete="off" onclick="window.location.replace('./my-teampage.html')">
                 <label class="btn btn-outline-dark" for="btnradioB">My Team's</label>
             </div>
 
             <div class="btn-group mt-2" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="window.location.replace('./user-home.html')">
                 <label class="btn btn-outline-info" for="btnradio1">New To Do</label>
             
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="window.location.replace('./my-tasks.html')">
                 <label class="btn btn-outline-info" for="btnradio2">View Tasks</label>
-            
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-info" for="btnradio3">High Priority</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="window.location.replace('./my-archives.html')">
+                <label class="btn btn-outline-info" for="btnradio3">Archives</label>
             </div>
         </div>
 
-    </main>
+   
 
-    <!-- <header class="container">
+        <!-- <header class="container">
         <div id="userhomepageheader" class="d-flex justify-content-between ">
             <div id="brandtitle-user-homepage" class="col-12 col-md-3 p-2">
                 <h6>
@@ -111,9 +114,9 @@
                 </div>
             </div>
         </div>
-    </header> -->
+        </header> -->
 
-    <!-- <div  class="col-md-6 d-flex justify-content-center d-none d-sm-block">
+        <!-- <div  class="col-md-6 d-flex justify-content-center d-none d-sm-block">
 
                 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
                     <div class="container-fluid">
@@ -142,8 +145,8 @@
                 <img src="../images/logout.png" class="logout-img p-2" alt="logout">
 
             </div> -->
-    <!-- Visisble only in mobile view -->
-    <!-- <div id="mobilenav" class="d-block d-sm-none row" style="border: 3px solid red; overflow: hidden;">
+        <!-- Visisble only in mobile view -->
+        <!-- <div id="mobilenav" class="d-block d-sm-none row" style="border: 3px solid red; overflow: hidden;">
 
 
         <div class="col-6" style="border: 2px solid;">
@@ -176,31 +179,26 @@
 
         </div>
 
-    </div>
+            </div>
 
 
 
 
- -->
+        -->
 
 
-    <main class="mt-5" >
-        <div id="pagecontent" class="d-flex justify-content-center" >
+        <!-- <main class="mt-5" > -->
+        <div id="pagecontent" class="d-flex justify-content-center mt-4" >
 
-            <div class="d-flex justify-content-center" >
+            <div class="d-flex justify-content-center  " >
                 <div class="left-side-content col-10 col-md-6 ">
 
                     <h5>Assign a new task!</h5>
                     <small class="text-secondary">Assign task to any registered member of your team by selecting their name from dropdown.</small>
                     <br>
 
-                    <!-- <div class="d-flex justify-content-center ">
-                        <select name="users" id="usersList" class="forminput">
-                            <option value="<span id='loggedinuserid'></span>" selected class="options"><span id="loggedinusername"></span></option>
-                        </select>
-                    </div>
-                    <br> -->
-                    <div class="d-flex justify-content-center mt-2">
+                    
+                    <div class="d-flex justify-content-center mt-2 col-md-12">
                         <select name="users" id="usersList" class="forminput">
                             <option value="" class="options">Select user...</option>
                         </select>
@@ -222,7 +220,7 @@
 
 
                     <div class="d-flex align-items-center justify-content-center">
-                        <input type="date" id="deadline" class="forminput col-md-7" >
+                        <input type="date" id="deadline" class="forminput col-md-7" onfocus="disablePastDates()">
                     </div><br>
 
 
@@ -246,12 +244,12 @@
                 </div>
 
                 <!-- Not visible in mobile view -->
-                <div class="d-none d-sm-block d-flex justify-content-center flex-column">
-                    <div style="border: 2px solid;">
+                <div class="d-none d-sm-block d-flex text-center flex-column col-md-6" id="quicktask">
+                    <div class="">
                         <h5>Quick tasks!</h5>
                     </div>
                     
-                    <div id="quickTask" class="d-flex flex-column col-10 col-md-8" style="border: 2px solid;"></div>
+                    <div id="quickTask" class="d-flex align-items-end flex-column col-md-12" ></div>
                 </div>
 
             </div>

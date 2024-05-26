@@ -12,9 +12,6 @@ window.onload = function (){
 
             for (let i = 0; i < data.length; i++) {
                 if(data[i].name == loggedinUser){
-                    console.log("inside if");
-                    console.log(data[i].name);
-                    console.log(data[i].id);
                     let newOption = new Option(data[i].name, data[i].id,  false, true );
                     usersList.appendChild(newOption);
                 }
@@ -23,18 +20,11 @@ window.onload = function (){
                 usersList.appendChild(newOption);}
             }
 
-            // let loggedinusername = document.getElementById("loggedinusername");
-            // loggedinusername.innerHTML = sessionStorage.getItem("name");
-            //var country = document.getElementById("country");
-            //usersList.options[usersList.options.selectedIndex].selected = true;
+          
             
         });
 
-        // let loggedinUser = sessionStorage.getItem("id");
-        //     console.log(loggedinUser);
-        //     document.getElementById(loggedinUser).selectedIndex = true;
-
-        // <option value="value" selected>Option Name</option>
+     
 
     let taskCategory = document.getElementById("taskCategory");
     fetch("http://localhost:8083/api/categories")
@@ -46,6 +36,18 @@ window.onload = function (){
             }
         });
 
+        disablePastDates()
+}
+
+
+function disablePastDates() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("deadline").setAttribute("min", today);
 }
 
 function setUserName(){
@@ -62,14 +64,12 @@ function logout(){
 
 
 function submitTask(){
-//     var sel = document.getElementById("box1");
-// var text= sel.options[sel.selectedIndex].text;
 
-    let user_name = document.getElementById("usersList");
-    let uname = user_name.options[user_name.selectedIndex].text;
-    console.log(uname);
-    let deaddate = document.getElementById("deadline").value;
-    console.log(Date.parse(deaddate));
+
+    let name = document.getElementById("usersList");
+
+    let uname = name.options[name.selectedIndex].text;
+
     let bodyData = {
         
         userid: document.getElementById("usersList").value,
@@ -80,28 +80,28 @@ function submitTask(){
 
     }
 
+    
     fetch("http://localhost:8083/api/todos", {
         method: "POST",
         body: JSON.stringify(bodyData),
         headers: {"Content-type": 
                   "application/json; charset=UTF-8"},
       })
-      .then(response => response.json()) 
+      .then(response => {
+        if (response.ok) {
+        response.json()}
+        else{
+            throw new Error('Partially filled form cannot be submitted!');
+        }
+    }) 
       .then(json => {
-    
-        // let confirmationMessage = 
-        //    document.getElementById("confirmationMessage");
-        // confirmationMessage.innerHTML = "New Task added";
+ 
         if(!alert('New Task assigned to '+ uname)){window.location.reload();}
       })
       .catch(err => {
-        
-        
-        // let confirmationMessage = 
-        //    document.getElementById(confirmationMessage);
-        // confirmationMessage.innerHTML = "Unexpected error";
-        if(!alert('Oops! We encountered below error'+err)){window.location.reload();}
-      });
+
+        if(!alert(err)){window.location.reload();}
+      });   
 
 
 }

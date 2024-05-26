@@ -5,6 +5,8 @@ let todoid = -1;
 
 export {setUserName, logout, fetchUserToDo, displayData, displayTodoData};
 
+
+
 function setUserName(){
     let loggedinUser = sessionStorage.getItem("name");
     console.log(loggedinUser);
@@ -12,10 +14,13 @@ function setUserName(){
     name.innerHTML = 'Welcome '+loggedinUser;
 }
 
+
+
 function logout(){
     sessionStorage.clear();
     window.location.replace("../src/user-login.html");
 }
+
 
 
 async function fetchUserToDo(selectedUser) {
@@ -51,6 +56,7 @@ export default function displayData(selectedUser){
             for (let i = 0; i < data.length; i++) {
                 if(!delIdArray.includes((data[i].id).toString())){
 
+                    // Display data in table as per filters
                     function displayDataTable(){
                         
                         let row = table.insertRow(-1);
@@ -99,11 +105,7 @@ export default function displayData(selectedUser){
 
                         cell2.innerHTML = data[i].description.slice(0,20)+'...';
                         cell2.className = "bg-transparent text-secondary fs-6";
-                        // cell2.onclick = function(){
-                        //     todoid = data[i].id;
-                        //     console.log(todoid)
-                        //     displayTodoData(todoid);}
-
+                      
                 
                         if (data[i].completed) {
                             cell3.appendChild(compimg);
@@ -194,8 +196,7 @@ let container =
 
 async function getToDo(todoid){
 
-    // let container = 
-    // document.getElementById('toDoContainerDiv');
+ 
     while(container.firstChild){
         container.firstChild.remove(); 
     }
@@ -211,12 +212,6 @@ async function getToDo(todoid){
 
 
 function displayTodoData(todoid){
-
-    if(document.getElementById("confirmDelDiv").firstChild){
-        document.getElementById("confirmDelDiv").firstChild.remove();
-         document.getElementById("confirmBtnDiv").firstChild.remove();
-         document.getElementById("cancelBtnDiv").firstChild.remove();
-        }
     getToDo(todoid).then(toDo => {
         
    let assignedTo = document.createElement('p');
@@ -239,46 +234,49 @@ function displayTodoData(todoid){
 
         if (!notToDisplay.includes(key)){
 
-      let br = document.createElement('p');
+            let br = document.createElement('p');
 
-      let label = document.createElement('LABEL');
-      label.textContent = key.toUpperCase();
-      label.className = 'descheaders fw-light';
-      container.appendChild(label);
-        
-      let value = document.createElement('p');
-      value.textContent = toDo[key];
-      value.className = 'desctext ps-5 pe-3 pt-1 pb-1 mb-1';
-      value.style="border:1px solid; border-radius:5px;";
-      container.appendChild(value);
+            let label = document.createElement('LABEL');
+            label.textContent = key.toUpperCase();
+            label.className = 'descheaders fw-light';
+            container.appendChild(label);
+                
+            let value = document.createElement('p');
+            value.textContent = toDo[key];
+            value.className = 'desctext ps-5 pe-3 pt-1 pb-1 mb-1';
+            value.style="border:1px solid; border-radius:5px;";
+            container.appendChild(value);
 
-      container.appendChild(br);}
+            container.appendChild(br);
+        }
 
     }
 
     
-      let label5 = document.createElement('LABEL');
-      label5.textContent = 'STATUS: ';
-      label5.className = 'descheaders fw-light';
-      container.appendChild(label5);
+    let label5 = document.createElement('LABEL');
+    label5.textContent = 'STATUS: ';
+    label5.className = 'descheaders fw-light';
+    container.appendChild(label5);
 
 
-      const completed = document.createElement('p');
-      if (toDo.completed){
-        completed.textContent = ` Completed`;
-        }
-      else{
-            completed.textContent = ` Pending`;
-        }
-      completed.className = 'desctext ps-5 pe-3 pt-1 pb-1  mb-1';
-      completed.style="border:1px solid; border-radius:5px;";
-      container.appendChild(completed);
+    const completed = document.createElement('p');
+    if (toDo.completed){
+    completed.textContent = ` Completed`;
+    }
+    else{
+        completed.textContent = ` Pending`;
+    }
+    completed.className = 'desctext ps-5 pe-3 pt-1 pb-1  mb-1';
+    completed.style="border:1px solid; border-radius:5px;";
+    container.appendChild(completed);
 
-    //let toggleStatusBtn = document.getElementById("toggleStatusBtn");
-    let loggedinUserid = sessionStorage.getItem("id");
+
+    
+    let markCompletedBtn = document.createElement("button");
+    markCompletedBtn.className = "mt-2";
     if(loggedinUserid == toDo.userid){
 
-        let markCompletedBtn = document.createElement("button");
+        //let markCompletedBtn = document.createElement("button");
         if (toDo.completed){
             markCompletedBtn.innerHTML = "Revert to Pending";
         }
@@ -292,12 +290,7 @@ function displayTodoData(todoid){
             console.log(todoid);
             markCompletedBtnClicked(todoid);
         }
-        // Delete button
-
-    //     <div  class="d-flex justify-content-around mt-3">
-        //     <div id="deleteBtnDiv"></div>
-        //     <div id="editBtnDiv"></div>
-    //      </div>
+      
         let btnDiv = document.createElement("div");
         btnDiv.className = "d-flex justify-content-around mt-3";
 
@@ -378,11 +371,13 @@ function markCompletedBtnClicked(todoid){
   });
 }
 
+
+
 function deletedBtnClicked(todoid){
     if(document.getElementById("confirmDelDiv").firstChild){
         document.getElementById("confirmDelDiv").firstChild.remove();
-         document.getElementById("confirmBtnDiv").firstChild.remove();
-         document.getElementById("cancelBtnDiv").firstChild.remove();
+        document.getElementById("confirmBtnDiv").firstChild.remove();
+        document.getElementById("cancelBtnDiv").firstChild.remove();
         }
 
     
@@ -400,10 +395,10 @@ function deletedBtnClicked(todoid){
     let cancelBtnDiv = document.getElementById("cancelBtnDiv");
 
     //let cancelBtn = document.createElement("button");
-    let cancelBtn = document.createElement("img");
-    cancelBtn.src = "../images/cross.png";
     //cancelBtn.innerHTML = "Cancel";
     //cancelBtn.className = "btn btn-secondary";
+    let cancelBtn = document.createElement("img");
+    cancelBtn.src = "../images/cross.png";
     cancelBtnDiv.appendChild(cancelBtn);
     cancelBtn.onclick = function(){
          document.getElementById("confirmDelDiv").firstChild.remove();
@@ -415,22 +410,17 @@ function deletedBtnClicked(todoid){
     let confirmBtnDiv = document.getElementById("confirmBtnDiv");
 
     //let confirmBtn = document.createElement("button");
-    let confirmBtn = document.createElement("img");
     //confirmBtn.innerHTML = "Yes Delete";
     //confirmBtn.className = "btn btn-warning";
+    let confirmBtn = document.createElement("img");
     confirmBtn.src = "../images/tick.png";
     confirmBtnDiv.appendChild(confirmBtn);
     confirmBtn.onclick = function(){
             
         localStorage.setItem("deletedIds", deletedIdsUpt +','+ todoid ) ;
-        //deletedIdsUpt=localStorage.getItem("deletedIds");
-        //delIdArray = deletedIdsUpt.split(',');
-        //console.log(delIdArray);
         window.location.reload();
     }
-    // listUserToDo();
-    // let offcanvascloseBtn = document.getElementById("offcanvascloseBtn");
-    // offcanvascloseBtn.click();
+    
 
 
 } 
@@ -504,53 +494,53 @@ function editBtnClicked(todoid){
 
                 container.appendChild(categoryList);
 
-                let taskdetails = document.createElement("textarea");
-                taskdetails.className = "form-control mt-2";
-                taskdetails.setAttribute("id", "description");
-                taskdetails.innerHTML = toDo.description;
+            let taskdetails = document.createElement("textarea");
+            taskdetails.className = "form-control mt-2";
+            taskdetails.setAttribute("id", "description");
+            taskdetails.innerHTML = toDo.description;
 
-                container.appendChild(taskdetails);
-
-
-                let prevdeadline = document.createElement("p");
-                prevdeadline.className = "mt-2 text-secondary";
-                prevdeadline.innerHTML= ("Old deadline - "+toDo.deadline);
-                container.appendChild(prevdeadline);
-
-                let deadlinedate = document.createElement("input") 
-                deadlinedate.setAttribute("type", "date");
-                deadlinedate.setAttribute("id", "deadline")
-                deadlinedate.className = "form-control mt-1";
-                container.appendChild(deadlinedate);
-                //deadlinedate.innerHTML = toDo.deadline;
-                disablePastDates();
-
-                function disablePastDates() {
-                    let today = new Date();
-                    let dd = String(today.getDate()).padStart(2, '0');
-                    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                    let yyyy = today.getFullYear();
-                
-                    today = yyyy + '-' + mm + '-' + dd;
-                    document.getElementById("deadline").setAttribute("min", today);
-                }
+            container.appendChild(taskdetails);
 
 
-                let  priority = document.createElement("select");
-                priority.className = "form-control mt-2";
-                priority.setAttribute("id","priority");
-                let priorityList = ["High", "Medium","Low"];
-                for (let i=0; i<3; i++){
-                if(priorityList[i] == toDo.priority){
-                    let newOption = new Option(priorityList[i], priorityList[i],  false, true );
-                    priority.appendChild(newOption);
-                }
-                else{
-                let newOption = new Option(priorityList[i], priorityList[i]);
-                priority.appendChild(newOption);}
-                }
+            let prevdeadline = document.createElement("p");
+            prevdeadline.className = "mt-2 text-secondary";
+            prevdeadline.innerHTML= ("Old deadline - "+toDo.deadline);
+            container.appendChild(prevdeadline);
 
-                container.appendChild(priority);
+            let deadlinedate = document.createElement("input") 
+            deadlinedate.setAttribute("type", "date");
+            deadlinedate.setAttribute("id", "deadline")
+            deadlinedate.className = "form-control mt-1";
+            container.appendChild(deadlinedate);
+            //deadlinedate.innerHTML = toDo.deadline;
+            disablePastDates();
+
+            function disablePastDates() {
+                let today = new Date();
+                let dd = String(today.getDate()).padStart(2, '0');
+                let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = today.getFullYear();
+            
+                today = yyyy + '-' + mm + '-' + dd;
+                document.getElementById("deadline").setAttribute("min", today);
+            }
+
+
+            let  priority = document.createElement("select");
+            priority.className = "form-control mt-2";
+            priority.setAttribute("id","priority");
+            let priorityList = ["High", "Medium","Low"];
+            for (let i=0; i<3; i++){
+            if(priorityList[i] == toDo.priority){
+                let newOption = new Option(priorityList[i], priorityList[i],  false, true );
+                priority.appendChild(newOption);
+            }
+            else{
+            let newOption = new Option(priorityList[i], priorityList[i]);
+            priority.appendChild(newOption);}
+            }
+
+            container.appendChild(priority);
                 
 
         //document.getElementById("deleteBtnDiv").firstChild.remove();

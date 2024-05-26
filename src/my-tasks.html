@@ -37,57 +37,76 @@
         <hr>
         <div class="d-flex justify-content-between">
             <div class="" id="welcomeuser"></div>
-            <div class="" onclick="logout()">Logout</div>
+            <div class="" id="logout">Logout</div>
 
         </div>
     </header>
 
-    <main class="m-2">
+    <main class="m-1">
 
         <div class="selectionPanel d-flex justify-content-center flex-column">
 
-            <div class="btn-group btn-group-lg mt-4" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group mt-4" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradiomain" id="btnradioA" value="self" autocomplete="off" checked onclick="window.location.replace('./user-home.html')">
                 <label class="btn btn-outline-dark" for="btnradioA">My Planner</label>
             
-                <input type="radio" class="btn-check" name="btnradiomain" id="btnradioB" value="team" autocomplete="off" onclick="window.location.replace('./myteam-page.html')">
+                <input type="radio" class="btn-check" name="btnradiomain" id="btnradioB" value="team" autocomplete="off" onclick="window.location.replace('./my-teampage.html')">
                 <label class="btn btn-outline-dark" for="btnradioB">My Team's</label>
             </div>
 
-            <div class="btn-group mt-2" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group mt-2 " role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="window.location.replace('./user-home.html')" >
                 <label class="btn btn-outline-info" for="btnradio1">New To Do</label>
             
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked onclick="window.location.replace('./my-tasks.html')">
                 <label class="btn btn-outline-info" for="btnradio2">View Tasks</label>
             
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-info" for="btnradio3">High Priority</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="window.location.replace('./my-archives.html')">
+                <label class="btn btn-outline-info" for="btnradio3">Archives</label>
             </div>
         </div>
 
 
         <!-- Task table -->
-        <hr>
-        <div class="left-side-content col-md-6 mt-4">
+        
+        <div class="left-side-content col-12 mt-4">
 
-            <div class="d-flex align-items-center justify-content-center mt-3">
-                <div class="form-check form-switch">
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="form-check form-switch" >
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Only Today's</label>
-                  </div>
+                    <label class="form-check-label fw-light fst-italic" for="flexSwitchCheckChecked">Today's</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked1" >
+                    <label class="form-check-label fw-light fst-italic" for="flexSwitchCheckChecked1">High Priority</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked2" >
+                    <label class="form-check-label fw-light fst-italic" for="flexSwitchCheckChecked2">Pending</label>
+                </div>
             </div>
             <br>
 
-            <table id="userToDoList" class="table table-striped">
-                <tr>
-                    <th>Task</th>
-                    <th>Completion Status</th>
-                    <th>Take Action</th>
+            <table id="userToDoList" class="table table-dark" >
+                <tr >
+                    
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+
+                    <!-- <th>PRIO</th>
+                    <th>TASK</th>
+                    <th>STATUS</th>
+                    <th><b>+</b></th> -->
                 </tr>
             </table>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div id="taskdiv">
+
+            </div>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasExampleLabel">Task Details!</h5>
                   <hr>
@@ -97,18 +116,21 @@
                   <div>
                     <div class=" " >
                         <div id="toDoContainerDiv" class="" ></div>
+                        <!-- <div  class="d-flex justify-content-around mt-3">
+                            <div id="deleteBtnDiv"></div>
+                            <div id="editBtnDiv"></div>
+                        </div> -->
+                        
+                            <div id="confirmDelDiv"></div>
+                            
+                            <div  class="d-flex justify-content-around mt-3">
+                                <div id="confirmBtnDiv"></div>
+                                <div id="cancelBtnDiv"></div>
+                            </div>
+                        
                     </div>
                   </div>
-                  <!-- <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                      Dropdown button
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </div> -->
+                  
                 </div>
               </div>
 
@@ -123,3 +145,11 @@
 
         
     </main>
+
+    <footer>
+        <div class="copyright">
+            <small class="text-dark p-1">Site designed and created by: Ayushi Khare&copy;PluralSight</small>
+        </div>
+    </footer>
+
+    </body></html>

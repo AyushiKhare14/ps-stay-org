@@ -1,20 +1,6 @@
 
 "use strict";
 
-// let usernameList = [];
-// window.onload = function (){
-//     console.log(usernameList);
-//     fetch('http://localhost:8083/api/users')
-//     .then(response => response.json())
-//     .then(data => {
-//         for(let i=0; i<data.length; i++){
-//             usernameList.push(data[i].username);
-//         }})
-//         console.log(usernameList);
-// }
-
-
-
 
 function isUsernameAvailable(){
     let usernameToCheck = document.getElementById("username").value;
@@ -24,7 +10,7 @@ function isUsernameAvailable(){
     console.log(data)
     let showmsg = document.getElementById("showmsg");
     if(!data.available){
-//        let showmsg = document.getElementById("showmsg");
+
         showmsg.innerHTML = `Username is not available`;
     }
     else
@@ -32,11 +18,10 @@ function isUsernameAvailable(){
         showmsg.innerHTML = ``;
     }
    })
-    // if (usernameList.includes(usernameToCheck)){
-    //     let showmsg = document.getElementById("showmsg");
-    //      showmsg.innerHTML = `Username is not available`;
-    // }
+ 
 }
+
+
 
 function doPasswordsMatch(){
     let password = document.getElementById("password").value;
@@ -53,14 +38,7 @@ function doPasswordsMatch(){
 }
 
 
-// function clearMsgSpan(){
 
-//     let showmsg = document.getElementById("showmsg");
-//     let showmsg2 = document.getElementById("showmsg2");
-//         showmsg.innerHTML = ``;
-//         showmsg2.innerHTML = ``;
-    
-// }
 
 function registerUser(){
 
@@ -103,7 +81,6 @@ function registerUser(){
 
     //Declaring bodyData
     let bodyData = {
-        
         name: name,
         username: username,
         password: password,
